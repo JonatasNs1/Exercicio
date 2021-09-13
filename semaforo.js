@@ -43,6 +43,8 @@ function deixarAutomatico(){
     }
     else if(semaforoVerde()){
         ligarVermelho();
+    }else{
+        ligarVermelho();
     }
 }
 

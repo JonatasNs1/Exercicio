@@ -18,37 +18,40 @@ function ligarVerde(evento){
     semaforo.src ="img/verde.png";
     if (evento)parar()
 }
-function ligarTodos(){
-    return semaforo.src ="img/vermelho.png";
-    
+function semaforoVermelho(){
+    return semaforo.src.includes ("vermelho");
    
 }
-function ligarA(){
-    return semaforo.src ="img/amarelo.png";
+function semaforoAmarelo(){
+    return semaforo.src.includes("amarelo");
+   
 }
-function ligarV(){
-    return semaforo.src ="img/verde.png";
+function semaforoVerde(){
+    return semaforo.src.includes("verde");
+   
 }
+
+
 function deixarAutomatico(){
-    if(ligarTodos()){
+    if(semaforoVermelho()){
+        ligarAmarelo();
+        
+    }
+    else if(semaforoAmarelo()){
+        ligarVerde();
+      
+    }
+    else if(semaforoVerde()){
         ligarVermelho();
     }
 }
-function deixarAutomaticoV(){
-    if(ligarV()){
-        ligarVerde();
-    }
-}
-function deixarAutomaticoA(){
-    if(ligarA()){
-        ligarAmarelo();
-    }
-}
+
+
+
 function ligarAutomatico(){
     parar()
-    idInterval = setInterval(deixarAutomatico,10);
-    idInterval = setInterval(deixarAutomaticoA,10);
-    idInterval = setInterval(deixarAutomaticoV,10);
+    idInterval = setInterval(deixarAutomatico,1000);
+   
 }
 function parar(){
     clearInterval(idInterval)
